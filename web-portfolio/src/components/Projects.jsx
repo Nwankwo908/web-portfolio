@@ -4,7 +4,6 @@ import React from "react";
  * @param {{
  *   title: string;
  *   description: string;
- *   moreHref?: string;
  *   projects: Array<{ tag: string; description: string; imageAlt: string; imageSrc?: string }>;
  *   id?: string;
  *   className?: string;
@@ -13,7 +12,6 @@ import React from "react";
 export default function Projects({
   title,
   description,
-  moreHref = "#more-projects",
   projects,
   id = "projects",
   className = "",
@@ -21,35 +19,27 @@ export default function Projects({
   return (
     <section
       id={id}
-      className={`border-t border-white/10 px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-12 lg:py-24 ${className}`}
+      className={`w-full border-t border-white/10 px-4 py-12 pb-12 sm:py-16 lg:pb-16 ${className}`}
       aria-labelledby={`${id}-heading`}
     >
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-8 flex flex-col gap-4 sm:mb-10 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <h2
-              id={`${id}-heading`}
-              className="mb-2 text-2xl font-semibold tracking-tight text-white sm:text-3xl lg:text-4xl"
-              style={{ letterSpacing: "-0.02em" }}
-            >
-              {title}
-            </h2>
-            <p className="max-w-2xl text-base leading-[1.4] text-white/90 sm:text-lg">
-              {description}
-            </p>
-          </div>
-          <a
-            href={moreHref}
-            className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-white hover:underline sm:mt-0 sm:text-base"
+      <div className="mb-8 flex flex-col gap-4 sm:mb-10 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <h2
+            id={`${id}-heading`}
+            className="mb-2 text-2xl font-semibold tracking-tight text-white sm:text-3xl lg:text-4xl"
+            style={{ letterSpacing: "-0.02em" }}
           >
-            More →
-          </a>
+            {title}
+          </h2>
+          <p className="text-lg text-white/80 mt-1 line-clamp-1">
+            {description}
+          </p>
         </div>
-        <div className="grid gap-4 sm:gap-6 sm:grid-cols-2" role="list">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.tag + index} project={project} />
-          ))}
-        </div>
+      </div>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6" role="list">
+        {projects.map((project, index) => (
+          <ProjectCard key={project.tag + index} project={project} />
+        ))}
       </div>
     </section>
   );
@@ -64,7 +54,7 @@ function ProjectCard({ project }) {
       className="overflow-hidden rounded-xl bg-[#141414] p-4 transition-opacity hover:opacity-95 sm:rounded-2xl sm:p-6"
       role="listitem"
     >
-      <div className="mb-3 flex aspect-video items-center justify-center overflow-hidden rounded-lg bg-white/5 sm:mb-4 sm:rounded-xl">
+      <div className="mb-3 flex aspect-video items-center justify-center overflow-hidden rounded-lg bg-white sm:mb-4 sm:rounded-xl">
         {project.imageSrc ? (
           <img
             src={project.imageSrc}

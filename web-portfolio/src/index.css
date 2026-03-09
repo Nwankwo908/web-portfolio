@@ -8,9 +8,63 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Alte Haas Grotesk";
+  src: url("/fonts/alte-haas-grotesk/AlteHaasGrotesk.woff2") format("woff2"),
+       url("/fonts/alte-haas-grotesk/AlteHaasGrotesk.woff") format("woff"),
+       url("/fonts/alte-haas-grotesk/AlteHaasGrotesk.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Lenis handles smooth scroll; avoid native smooth to prevent conflict */
+html {
+  scroll-behavior: auto;
+}
+
+/* Now your global styles */
 body {
   margin: 0;
   background: #000;
   color: #fff;
   font-family: "Roboto", system-ui, sans-serif;
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-ticker {
+  animation: ticker 20s linear infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.app-fade-in {
+  animation: fadeInUp 1.6s ease-out forwards;
+}
+
+@keyframes liftUp {
+  from { transform: translateY(24px); }
+  to { transform: translateY(0); }
+}
+
+.app-lift-up {
+  animation: liftUp 1.6s ease-out forwards;
 }

@@ -1,0 +1,20 @@
+{
+  "name": "web-portfolio",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run dev --prefix web-portfolio",
+    "build": "npm run build --prefix web-portfolio",
+    "preview": "npm run build --prefix web-portfolio && npm run preview --prefix web-portfolio"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.4.10",
+    "@tailwindcss/line-clamp": "^0.4.4"
+  }
+}
