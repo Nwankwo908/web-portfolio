@@ -3,5 +3,8 @@
   "framework": "vite",
   "installCommand": "npm install --prefix web-portfolio",
   "buildCommand": "npm run build --prefix web-portfolio",
-  "outputDirectory": "web-portfolio/dist"
+  "outputDirectory": "web-portfolio/dist",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
 }
