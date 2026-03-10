@@ -188,7 +188,7 @@ export default function ProjectsPage() {
               className="text-lg sm:text-xl text-black/90 tracking-[-0.02em]"
               style={{ fontFamily: "Alte Haas Grotesk, system-ui, sans-serif", lineHeight: 1.4 }}
             >
-              I design systems that turn complexity into clarity.
+              See how I design systems that turn complexity into clarity.
             </p>
           </div>
         </section>
