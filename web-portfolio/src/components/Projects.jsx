@@ -5,7 +5,7 @@ import React from "react";
  *   title: string;
  *   description: string;
  *   moreHref?: string;
- *   projects: Array<{ tag: string; description: string; imageAlt: string; imageSrc?: string }>;
+ *   projects: Array<{ tag: string; description: string; imageAlt: string; imageSrc?: string; imageCredit?: string }>;
  *   id?: string;
  *   className?: string;
  * }} props
@@ -56,27 +56,35 @@ export default function Projects({
 }
 
 /**
- * @param {{ project: { tag: string; description: string; imageAlt: string; imageSrc?: string } }} props
+ * @param {{ project: { tag: string; description: string; imageAlt: string; imageSrc?: string; imageCredit?: string } }} props
  */
 function ProjectCard({ project }) {
   return (
     <article
-      className="overflow-hidden rounded-xl bg-[#141414] p-4 transition-opacity hover:opacity-95 sm:rounded-2xl sm:p-6"
+      className="overflow-hidden rounded-xl border border-white/10 bg-gradient-to-b from-[#1A1A1A] to-[#111111] p-4 shadow-[0_12px_30px_rgba(0,0,0,0.45)] transition duration-300 hover:border-white/20 hover:shadow-[0_18px_34px_rgba(0,0,0,0.5)] sm:rounded-2xl sm:p-6"
       role="listitem"
     >
-      <div className="mb-3 flex aspect-video items-center justify-center overflow-hidden rounded-lg bg-white/5 sm:mb-4 sm:rounded-xl">
+      <div className="relative mb-3 flex aspect-video items-center justify-center overflow-hidden rounded-lg border border-white/10 bg-white/5 sm:mb-4 sm:rounded-xl">
         {project.imageSrc ? (
-          <img
-            src={project.imageSrc}
-            alt={project.imageAlt}
-            className="h-full w-full object-cover"
-          />
+          <>
+            <img
+              src={project.imageSrc}
+              alt={project.imageAlt}
+              className="h-full w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
+          </>
         ) : (
           <span className="text-xs text-[#C4C4C4] sm:text-sm">Project image: {project.imageAlt}</span>
         )}
       </div>
       <p className="mb-2 text-xs text-[#C4C4C4] sm:text-sm">{project.tag}</p>
       <p className="text-sm leading-[1.4] text-white sm:text-base">{project.description}</p>
+      {project.imageCredit ? (
+        <p className="mt-3 text-[11px] text-white/55 sm:text-xs">{project.imageCredit}</p>
+      ) : null}
     </article>
   );
 }

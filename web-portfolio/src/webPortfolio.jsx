@@ -8,30 +8,40 @@ import Contact from "./components/Contact";
 const FONT_STACK =
   '"Labil Grotesk", "Plus Jakarta Sans", system-ui, sans-serif';
 
+const PROJECT_IMAGE_BASE = `${import.meta.env.BASE_URL}projects`;
+
 const PROJECTS = [
   {
     tag: "New Product | 2026",
     description:
       "I design decision-making systems for complex, high-stress user problems; automotive diagnostics is my latest example.",
     imageAlt: "Mechane AI app - If shops are expensive you're affordable",
+    imageSrc: `${PROJECT_IMAGE_BASE}/mechane-ai.svg`,
+    imageCredit: "Original concept artwork • Automotive AI diagnostics",
   },
   {
     tag: "New Product | 2025",
     description:
       "One smart platform for orders, jobs, and deliveries. See how I built it.",
     imageAlt: "Lowes platform with charts and data",
+    imageSrc: `${PROJECT_IMAGE_BASE}/logistics-platform.svg`,
+    imageCredit: "Original concept artwork • Logistics command center",
   },
   {
     tag: "Redesign | 2024",
     description:
       "See how one smart dashboard makes life easier for pro contractors.",
     imageAlt: "Dashboard with data points and graphs",
+    imageSrc: `${PROJECT_IMAGE_BASE}/contractor-dashboard.svg`,
+    imageCredit: "Original concept artwork • Contractor workflow dashboard",
   },
   {
     tag: "New Product | 2024",
     description:
       "Lowes Pro Business Analytics. Smarter insights for pro contractors.",
     imageAlt: "Business analytics on laptop and phone",
+    imageSrc: `${PROJECT_IMAGE_BASE}/business-analytics.svg`,
+    imageCredit: "Original concept artwork • Multi-device analytics",
   },
 ];
 

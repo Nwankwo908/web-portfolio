@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Operations and delivery platform artwork</title>
+  <desc id="desc">Warehouse planning board with cards, route map lines and KPI charts.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1F2937"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect x="120" y="100" width="1360" height="700" rx="28" fill="#0B1220" stroke="#374151"/>
+  <rect x="190" y="180" width="480" height="500" rx="20" fill="#111827" stroke="#4B5563"/>
+  <rect x="730" y="180" width="670" height="280" rx="20" fill="#111827" stroke="#4B5563"/>
+  <rect x="730" y="500" width="320" height="180" rx="20" fill="#10B981" opacity="0.2"/>
+  <rect x="1080" y="500" width="320" height="180" rx="20" fill="#3B82F6" opacity="0.2"/>
+  <path d="M790 360 C880 250, 1020 400, 1120 300 S1300 340, 1360 250" stroke="#22D3EE" stroke-width="8" fill="none"/>
+  <path d="M250 260 h220 M250 320 h320 M250 380 h280 M250 440 h180" stroke="#9CA3AF" stroke-width="10" stroke-linecap="round"/>
+</svg>
