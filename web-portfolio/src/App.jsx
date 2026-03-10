@@ -259,7 +259,7 @@ export default function App() {
             <p className="w-[800px] max-w-full text-white/90 text-lg leading-relaxed tracking-[-0.01em]">
             See how I design intelligent systems that help people make better decisions under pressure.            </p>
             <div className="flex justify-end">
-              <a href="#more" className="text-white font-medium hover:underline shrink-0">
+              <a href="/projects" className="text-white font-medium hover:underline shrink-0">
                 More →
               </a>
             </div>
