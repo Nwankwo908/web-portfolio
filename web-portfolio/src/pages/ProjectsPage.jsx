@@ -193,57 +193,57 @@ export default function ProjectsPage() {
           </div>
         </section>
 
-        {/* Project grid: single grid so cards flow and fill columns (no empty gaps on 2-col) */}
+        {/* Project grid: whole card links to project (same as Explore destination) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8 sm:gap-x-6 lg:gap-x-6">
-          {PROJECTS_GRID.map(({ src, href, icons, title, description }, index) => (
-            <div
-              key={index}
-              className="flex flex-col w-full min-w-0 rounded-[10px] sm:rounded-[14px] bg-white overflow-hidden pt-2"
-            >
-              <div
-                className="group relative w-full min-h-0 shrink-0 overflow-visible rounded-[10px] sm:rounded-[14px] bg-white py-4"
-                style={{ aspectRatio: "426/275" }}
-              >
-                {href ? (
-                  <Link
-                    to={href}
-                    className="shrink-0 inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-black/50 text-white font-medium text-sm hover:bg-zinc-800/50 transition-colors z-10 absolute top-[44px] right-6"
-                  >
-                    Explore
-                  </Link>
-                ) : (
-                  <a
-                    href="#"
-                    className="shrink-0 inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-black/50 text-white font-medium text-sm hover:bg-zinc-800/50 transition-colors z-10 absolute top-[44px] right-6"
-                  >
-                    Explore
-                  </a>
-                )}
-                <img
-                  src={src}
-                  alt=""
-                  className={`absolute inset-0 size-full object-contain object-center rounded-[10px] sm:rounded-[14px] transition-all duration-700 ease-out group-hover:-translate-y-2 group-hover:brightness-110 ${index === 7 || index === 8 ? "border border-black/20 box-border" : ""}`}
-                  style={{
-                    backfaceVisibility: "hidden",
-                    imageRendering: "auto",
-                  }}
-                />
+          {PROJECTS_GRID.map(({ src, href, icons, title, description }, index) => {
+            const exploreClass = "shrink-0 inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-black/50 text-white font-medium text-sm hover:bg-zinc-800/50 transition-colors z-10 absolute top-[44px] right-6";
+            const cardClass = "flex flex-col w-full min-w-0 rounded-[10px] sm:rounded-[14px] bg-white overflow-hidden pt-2";
+            const content = (
+              <>
+                <div
+                  className="group relative w-full min-h-0 shrink-0 overflow-visible rounded-[10px] sm:rounded-[14px] bg-white py-4"
+                  style={{ aspectRatio: "426/275" }}
+                >
+                  {href ? (
+                    <span className={exploreClass + " pointer-events-none"} aria-hidden>Explore</span>
+                  ) : (
+                    <a href="#" className={exploreClass}>Explore</a>
+                  )}
+                  <img
+                    src={src}
+                    alt=""
+                    className={`absolute inset-0 size-full object-contain object-center rounded-[10px] sm:rounded-[14px] transition-all duration-700 ease-out group-hover:-translate-y-2 group-hover:brightness-110 ${index === 7 || index === 8 ? "border border-black/20 box-border" : ""}`}
+                    style={{
+                      backfaceVisibility: "hidden",
+                      imageRendering: "auto",
+                    }}
+                  />
+                </div>
+                <div className="pl-0 pr-3 py-2.5 sm:pr-4 sm:py-3" style={{ fontFamily: "Alte Haas Grotesk, system-ui, sans-serif" }}>
+                  {icons && icons.length > 0 && (
+                    <div className="flex items-center gap-2 mb-1.5">
+                      {icons.map((Icon, i) => (
+                        <Icon key={i} />
+                      ))}
+                    </div>
+                  )}
+                  {title && (
+                    <p className="text-sm sm:text-base font-bold text-black mb-0.5">{title}</p>
+                  )}
+                  <p className="text-sm sm:text-base text-black/80">{description}</p>
+                </div>
+              </>
+            );
+            return href ? (
+              <Link key={index} to={href} className={cardClass}>
+                {content}
+              </Link>
+            ) : (
+              <div key={index} className={cardClass}>
+                {content}
               </div>
-              <div className="pl-0 pr-3 py-2.5 sm:pr-4 sm:py-3" style={{ fontFamily: "Alte Haas Grotesk, system-ui, sans-serif" }}>
-                {icons && icons.length > 0 && (
-                  <div className="flex items-center gap-2 mb-1.5">
-                    {icons.map((Icon, i) => (
-                      <Icon key={i} />
-                    ))}
-                  </div>
-                )}
-                {title && (
-                  <p className="text-sm sm:text-base font-bold text-black mb-0.5">{title}</p>
-                )}
-                <p className="text-sm sm:text-base text-black/80">{description}</p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Let's talk footer */}

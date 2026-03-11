@@ -204,19 +204,19 @@ export default function App() {
                 alt=""
                 className="shrink-0 w-24 h-24 rounded-lg object-cover self-start"
               />
-              <p className="text-white text-lg leading-[1.4] tracking-[-0.01em] w-[470px] max-w-full h-[156px] mt-0">
+              <p className="text-white text-lg leading-[1.4] tracking-[-0.01em] w-[470px] max-w-full min-h-[156px] mt-0">
                 Hi, I&apos;m Osita Nwankwo, a UX designer deeply immersed in AI and emerging technologies, with a strong focus on AI agents, integrations, and scalable solutions.
               </p>
             </div>
           </div>
-          {/* Scroll button – sits at bottom of Hero */}
+          {/* Scroll button – in flow on small screens so it never covers text; absolute on md+ */}
           <a
             href="#expertise"
             onClick={(e) => {
               e.preventDefault();
               document.getElementById("expertise")?.scrollIntoView({ behavior: "smooth", block: "start" });
             }}
-            className="absolute bottom-4 right-4 md:right-8 z-10 inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#0045bf] text-white font-medium text-sm hover:opacity-90 transition-opacity shadow-xl"
+            className="mt-8 md:mt-0 md:absolute md:bottom-4 md:right-8 z-10 inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#0045bf] text-white font-medium text-sm hover:opacity-90 transition-opacity shadow-xl w-fit"
             aria-label="Scroll to Expertise"
           >
             SCROLL DOWN ↓
