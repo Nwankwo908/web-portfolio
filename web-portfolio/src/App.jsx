@@ -198,25 +198,25 @@ export default function App() {
                 nwankwo908@gmail.com
               </a>
             </div>
-            <div className="lg:col-span-5 lg:col-start-8 flex flex-row gap-4 items-start">
+            <div className="lg:col-span-5 lg:col-start-8 flex flex-col sm:flex-row gap-4 items-start">
               <img
                 src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3OXVmbWg5cTR6c2Fsa2d5YTVnazk4MGptbXJteW9sbGJrdmN5Mjd3OSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/cYf4OoUU4YZ0wIVWk3/giphy.gif"
                 alt=""
                 className="shrink-0 w-24 h-24 rounded-lg object-cover self-start"
               />
-              <p className="text-white text-lg leading-[1.4] tracking-[-0.01em] w-[470px] max-w-full min-h-[156px] mt-0">
+              <p className="text-white text-lg leading-[1.4] tracking-[-0.01em] w-[470px] max-w-full min-h-0 mt-0">
                 Hi, I&apos;m Osita Nwankwo, a UX designer deeply immersed in AI and emerging technologies, with a strong focus on AI agents, integrations, and scalable solutions.
               </p>
             </div>
           </div>
-          {/* Scroll button – in flow on small screens so it never covers text; absolute on md+ */}
+          {/* Scroll button – always below intro on small screens (block so it doesn’t sit beside text); absolute on md+ */}
           <a
             href="#expertise"
             onClick={(e) => {
               e.preventDefault();
               document.getElementById("expertise")?.scrollIntoView({ behavior: "smooth", block: "start" });
             }}
-            className="mt-8 md:mt-0 md:absolute md:bottom-4 md:right-8 z-10 inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#0045bf] text-white font-medium text-sm hover:opacity-90 transition-opacity shadow-xl w-fit"
+            className="block w-fit mt-10 md:mt-0 md:absolute md:bottom-4 md:right-8 z-10 flex items-center justify-center px-6 py-3 rounded-full bg-[#0045bf] text-white font-medium text-sm hover:opacity-90 transition-opacity shadow-xl"
             aria-label="Scroll to Expertise"
           >
             SCROLL DOWN ↓

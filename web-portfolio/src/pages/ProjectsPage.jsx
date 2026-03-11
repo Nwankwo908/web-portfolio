@@ -197,7 +197,7 @@ export default function ProjectsPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8 sm:gap-x-6 lg:gap-x-6">
           {PROJECTS_GRID.map(({ src, href, icons, title, description }, index) => {
             const exploreClass = "shrink-0 inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-black/50 text-white font-medium text-sm hover:bg-zinc-800/50 transition-colors z-10 absolute top-[44px] right-6";
-            const cardClass = "flex flex-col w-full min-w-0 rounded-[10px] sm:rounded-[14px] bg-white overflow-hidden pt-2";
+            const cardClass = "flex flex-col w-full min-w-0 rounded-[10px] sm:rounded-[14px] bg-white overflow-hidden pt-2 block cursor-pointer";
             const content = (
               <>
                 <div
