@@ -86,8 +86,9 @@ export default function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md pb-4 transition-shadow duration-200 ${
         isProjectsPage ? "bg-white/50" : "bg-black/50"
       } ${hasScrolled ? "shadow-[0_4px_6px_-1px_rgba(0,0,0,0.2),0_2px_4px_-2px_rgba(0,0,0,0.15),0_10px_15px_-3px_rgba(0,0,0,0.18)]" : "shadow-none"}`}
+      style={{ paddingTop: "max(1.5rem, env(safe-area-inset-top))" }}
     >
-      <div className="w-full px-4 pt-6 pb-0 flex flex-col items-center justify-center gap-[40px]">
+      <div className="w-full px-4 pb-0 flex flex-col items-center justify-center gap-[40px]">
 
         <div
           className={`font-['Cocogoose'] text-2xl tracking-[-0.08em] text-center ${
@@ -98,8 +99,9 @@ export default function Navbar() {
         </div>
 
         <nav
-          className="relative inline-flex items-center gap-1 rounded-full bg-[#262626] px-2 py-2 shadow-lg flex-wrap justify-center"
+          className="relative flex items-center gap-1 rounded-full bg-[#262626] px-2 py-2 shadow-lg flex-nowrap justify-center max-w-[calc(100vw-2rem)] overflow-x-auto overflow-y-hidden scrollbar-none"
           aria-label="Main"
+          style={{ WebkitOverflowScrolling: "touch" }}
         >
           <span
             style={{
@@ -123,7 +125,7 @@ export default function Navbar() {
               onClick={(e) => handleNavClick(e, i)}
               onMouseEnter={() => updatePill(i)}
               onMouseLeave={() => updatePill(activeIndex)}
-              className={`relative z-10 inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-base transition-colors ${
+              className={`relative z-10 inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 rounded-full text-sm sm:text-base transition-colors shrink-0 ${
                 activeIndex === i
                   ? "bg-white text-black font-medium"
                   : "text-zinc-400 hover:text-zinc-200"
